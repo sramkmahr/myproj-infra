@@ -28,7 +28,8 @@ SUBNET_HOST_ADDR="10.20.1.0/24"
 VNET_TEST_ADDR="10.30.0.0/16"
 SUBNET_TEST_ADDR="10.30.1.0/24"
 
-# Bastion-specific Subnet
+# Bastion Subnet (fixed name required by Azure)
+SUBNET_BASTION_NAME="AzureBastionSubnet"
 SUBNET_BASTION_ADDR="10.20.254.0/24"
 
 # Peering Names

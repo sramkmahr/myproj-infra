@@ -8,7 +8,7 @@ source "$(dirname "$0")/env.sh"
 
 # ✅ Get public SSH key from Key Vault (for Linux VMs)
 SSH_PUBLIC_KEY=$(az keyvault secret show \
-  --vault-name myprojkv1234567890 \
+  --vault-name myproj-kv \
   --name vm-ssh-public-key \
   --query value -o tsv)
 

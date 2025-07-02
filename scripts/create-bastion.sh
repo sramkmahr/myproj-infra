@@ -11,6 +11,16 @@ BASTION_IP_NAME="myproj-bastion-ip"
 
 echo "🛡️ Creating Azure Bastion host..."
 
+# Check if Bastion subnet exists (Azure requires exact name: AzureBastionSubnet)
+if ! az network vnet subnet show --name "$SUBNET_BASTION_NAME" --vnet-name "$VNET_HOST_NAME" --resource-group "$RG_NAME" &>/dev/null; then
+  echo "📦 Creating Bastion subnet ($SUBNET_BASTION_NAME)..."
+  az network vnet subnet create \
+    --name "$SUBNET_BASTION_NAME" \
+    --vnet-name "$VNET_HOST_NAME" \
+    --resource-group "$RG_NAME" \
+    --address-prefixes "$SUBNET_BASTION_ADDR"
+fi
+
 # Check if Bastion already exists
 if az network bastion show --name "$BASTION_NAME" --resource-group "$RG_NAME" &>/dev/null; then
   echo "✅ Bastion host $BASTION_NAME already exists. Skipping."
