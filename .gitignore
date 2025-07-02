@@ -1,0 +1,22 @@
+# Ignore secret/sensitive files
+
+*.pem
+*.key
+*.crt
+*.secret
+*.pfx
+*.cer
+*.pub
+*.json
+
+# Ignore system clutter
+*.log
+*.tmp
+*.swp
+.DS_Store
+
+# Node/Python/IDE files (safe additions for future)
+node_modules/
+__pycache__/
+.vscode/
+.env
